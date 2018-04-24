@@ -1,14 +1,38 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
+#include <errno.h>
 
 int
-main (int argc, void *argv[])
+main (int argc, const char *argv[])
 {
-	int iteration;
-	for (iteration = 1; iteration <= 1000; iteration += 1) {
-		printf("Hello, world! [#%d]\n", iteration);
+	unsigned long iteration, iterations;
+	const char *label;
+
+	if (argc > 1)
+		label = argv[1];
+	else
+		label = NULL;
+	if (argc > 2) {
+		errno = 0;
+		iterations = strtoul(argv[2], NULL, 0);
+		if (errno != 0) {
+			fprintf(stderr, "invalid iteration count: %s\n", argv[2]);
+			return 1;
+		}
+	} else
+		iterations = 10;
+
+	printf("%s%srunning for %lu iteration%s...\n",
+	       (label ? label : ""), (label ? ": " : ""),
+	       iterations, (iterations == 1 ? "" : "s"));
+	for (iteration = 1; iteration <= iterations; iteration += 1) {
+		printf("%s%sHello, world! [#%lu]\n",
+		       (label ? label : ""), (label ? ": " : ""),
+		       iteration);
 		fflush(stdout);
-		sleep(10);
+		if (iteration < iterations)
+			sleep(10);
 	}
 	return 0;
 }

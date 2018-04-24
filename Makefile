@@ -9,8 +9,9 @@ hello: hello.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
 
 clean:
-	rm hello
+	rm -f hello
 
 install: hello
 	install -d $(DESTDIR)$(bindir)
 	install -m 0755 hello $(DESTDIR)$(bindir)
+	install -m 0755 startapp.sh $(DESTDIR)$(bindir)/startapp
