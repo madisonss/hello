@@ -1,5 +1,5 @@
 #!/bin/sh
-instances="${1:-5}"
+instances="${1:-3}"
 loops="${2:-10}"
 note="Starting..."
 while true; do
