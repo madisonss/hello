@@ -27,7 +27,7 @@ main (int argc, const char *argv[])
 	       (label ? label : ""), (label ? ": " : ""),
 	       iterations, (iterations == 1 ? "" : "s"));
 	for (iteration = 1; iteration <= iterations; iteration += 1) {
-		printf("%s%sHello, world! [#%lu]\n",
+		printf("%s%sHello from Flatland! [#%lu]\n",
 		       (label ? label : ""), (label ? ": " : ""),
 		       iteration);
 		fflush(stdout);
