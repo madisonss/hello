@@ -1,6 +1,6 @@
 #!/bin/sh
-instances="${1:-3}"
-loops="${2:-10}"
+instances="${1:-2}"
+loops="${2:-100}"
 note="Starting..."
 while true; do
     echo "$note"
