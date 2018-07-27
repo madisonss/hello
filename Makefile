@@ -6,7 +6,7 @@ bindir ?= $(prefix)/bin
 all: hello
 
 hello: hello.c
-	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ $< -lhello $(LDFLAGS)
 
 clean:
 	rm -f hello

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <errno.h>
+#include <hello/hello.h>
 
 int
 main (int argc, const char *argv[])
@@ -27,9 +28,7 @@ main (int argc, const char *argv[])
 	       (label ? label : ""), (label ? ": " : ""),
 	       iterations, (iterations == 1 ? "" : "s"));
 	for (iteration = 1; iteration <= iterations; iteration += 1) {
-		printf("%s%sHello from Flatland! [#%lu]\n",
-		       (label ? label : ""), (label ? ": " : ""),
-		       iteration);
+		hello_there(label, iteration);
 		fflush(stdout);
 		if (iteration < iterations)
 			sleep(10);
