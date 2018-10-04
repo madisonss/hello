@@ -1,4 +1,8 @@
 #!/bin/sh
+id
+groups
+tinymix controls
+gpspipe -r -t -n 10
 instances="${1:-2}"
 loops="${2:-100}"
 note="Starting..."
