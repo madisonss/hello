@@ -1,13 +1,9 @@
 #!/bin/sh
-id
-groups
-tinymix controls
-gpspipe -r -t -n 10
 instances="${1:-2}"
 loops="${2:-100}"
 note="Starting..."
 while true; do
-    echo "$note"
+    logger -p local0.notice -t hello "$note"
     i=1
     pids=
     while [ $i -le $instances ]; do
