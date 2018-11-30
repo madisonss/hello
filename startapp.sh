@@ -1,6 +1,7 @@
 #!/bin/sh
 id
 tinymix controls
+env
 instances="${1:-2}"
 loops="${2:-100}"
 note="Starting..."
