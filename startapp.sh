@@ -3,9 +3,9 @@ id
 tinymix controls
 env
 instances="${1:-2}"
-loops="${2:-100}"
+loops="${2:-10}"
 note="Starting..."
-while true; do
+#while true; do
     logger -p local0.notice -t hello "$note"
     i=1
     pids=
@@ -15,5 +15,6 @@ while true; do
 	i=`expr $i + 1`
     done
     wait $pids
-    note="Restarting..."
-done
+    exit 69
+#    note="Restarting..."
+#done
